@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  
+
+<style>
+* {
+  box-sizing: border-box;
+}
+body{
+  align-items: center;
+  background-image: url("image50.jpg");
+  background-repeat: no-repeat;
+  background-size: 1550px 900px;
+  background-attachment: fixed;
+}
+#myInput {
+  width:500px;
+  height: 100%;
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myUL {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#myUL li a {
+ 
+  margin-top: -1px;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block;
+  align-content: center;
+}
+
+#myUL li a:hover:not(.header) {
+
+  background-color:white;
+  width: 500px;
+  height:100%;
+}
+div{
+  width:500px;
+  height:100%;
+  align-content: center;
+ 
+}
+li::first-letter{
+  font-size:x-large;
+
+
+}
+</style>
+</head>
+<body>
+<div class="container">
+<input type="text" id="myInput" style="font-size: 20px;" onkeyup="myFunction()" placeholder="Search for Specialities.." title="Type in a name">
+<ul id="myUL">
+  <div class="row">
+  <li><a href="hospitalMap.html">Cardiology</a></li>
+  </div>
+  <div class="row">
+  <li><a href="hospitalMap.html">Gynecology</a></li>
+  </div>
+  <div class="row">
+  <li><a href="hospitalMap.html">Dermatology</a></li>
+  </div>
+  <div class="row">
+  <li><a href="hospitalMap.html">Orthopedics</a></li>
+  </div>
+  <div class="row">
+  <li><a href="hospitalMap.html">Urology</a></li>
+  </div>
+  <div class="row">
+  <li><a href="hospitalMap.html">Neurology</a></li>
+  </div>
+  <div class="row">
+  <li><a href="hospitalMap.html">Anesthesiology</a></li>
+  </div>
+  <div class="row">
+  <li><a href="hospitalMap.html">Oncology</a></li>
+  </div>
+  <div class="row">
+  <li><a href="hospitalMap.html">Odontology</a></li>
+  </div>
+  <div class="row">
+  <li><a href="hospitalMap.html">Radiology</a></li>
+  </div>
+  <div class="row">
+  <li><a href="hospitalMap.html">Pathology</a></li>
+  </div>
+  <div class="row">
+  <li><a href="hospitalMap.html">Opthalmalogy</a></li>
+  </div>
+  <div class="row">
+  <li><a href="hospitalMap.html">Immunology</a></li>
+  </div>
+  <div class="row">
+  <li><a href="hospitalMap.html">Endocrinology</a></li>
+  </div>
+  <div class="row">
+  <li><a href="hospitalMap.html">Gastroenterology</a></li>
+  </div>
+  <div class="row">
+  <li><a href="hospitalMap.html">Rheumatology</a></li>
+  </div>
+  <div class="row">
+  <li><a href="hospitalMap.html">Pulmonology</a></li>
+  </div>
+  <div class="row">
+  <li><a href="hospitalMap.html">Hematology</a></li>
+  </div>
+  <div class="row">
+  <li><a href="hospitalMap.html">Hepatology</a></li>
+  </div>
+  <div class="row">
+  <li><a href="hospitalMap.html">Neonatology</a></li>
+  </div>
+</ul>
+
+
+<script>
+function myFunction() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+</script>
+</div>
+</body>
+</html>

@@ -1,0 +1,628 @@
+  <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital management system for emergency</title>
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <!-- Clerk CDN -->
+    <script
+        async
+        crossorigin="anonymous"
+        data-clerk-publishable-key="pk_test_bmVhcmJ5LW11dHQtMTkuY2xlcmsuYWNjb3VudHMuZGV2JA"
+        src="https://cdn.jsdelivr.net/npm/@clerk/clerk-js@latest/dist/clerk.browser.js">
+    </script>
+
+    <style>
+        * {
+
+            margin: 0;
+            padding: 0;
+            border: none;
+            text-decoration: none;
+        }
+
+
+
+        body {
+            display: flex;
+            background-color: rgb(255, 255, 255); /* Changed to white to remove blue space */
+            height: 750px; /* Ensure body covers full viewport height */
+        }
+
+
+        .slidebar {
+            position: fixed;
+            left: 0px;
+            width: 250px;
+            height: 100vh;
+            float: right;
+            background-color:black;
+
+        }
+
+        .slidebar header {
+            font-size: 18px;
+            color: rgb(0, 0, 0);
+            text-align: center;
+            line-height: 70px;
+            background-color: rgb(34, 255, 0);
+
+        }
+
+        .slidebar ul a {
+            height: 650px;
+            width: 250px;
+            line-height: 65px;
+            font-size: 17px;
+            color: rgb(215, 129, 17);
+            padding-left: 40px;
+            transition: .3s;
+        }
+
+        ul li:hover a {
+            padding-left: 50px;
+        }
+
+        .slidebar ul a i {
+            margin-right: 16px;
+        }
+       .mini
+       {
+        position: fixed;
+        margin-left:246px;
+        height: 100vh; /* Changed to 100vh to cover full height */
+        width: calc(100vw - 246px); /* Adjusted width to fill remaining space */
+        background-color: rgba(0, 0, 0, 0.295);
+        margin-top: 0;
+
+        
+       }
+       #subi1
+       {
+        margin-top: 0;
+        height: 100vh;
+        width:1300px;
+        background-image:url("image62.jpg");
+        background-size:1300px 100vh;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+       }
+       #subi2
+       {
+        height: 100vh;
+        width:1300px;
+        background-image:url("pic21.webp");
+        background-size:1300px 100vh;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+       }
+       #subi3
+       {
+        height: 100vh;
+        width:1300px;
+        background-image:url("pic23.jpeg");
+        background-size:1300px 100vh;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+       }
+       #subi4
+       {
+        height: 100vh;
+        width:1300px;
+        background-image:url("image4.png");
+        background-size:1300px 100vh;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+       }
+       .para-text
+       {
+        padding-left: 120px;
+        padding-right: 150px;
+        height: 100vh; 
+       }
+       #subi4 .para-text
+       {
+        background-color: rgba(0, 0, 0, 0.589); /* only background is transparent */
+        color: white; /* text stays clear */
+       }
+        #subi3 .para-text
+       {
+        background-color: rgba(255, 255, 255, 0.507); /* only background is transparent */
+        color: white; /* text stays clear */
+       }
+       #subi2 .para-text
+       {
+        background-color: rgba(0, 0, 0, 0.479); /* only background is transparent */
+        color: rgb(0, 0, 0); /* text stays clear */
+       }
+        #subi1 .para-text
+       {
+        background-color: rgba(0, 0, 0, 0.103); /* only background is transparent */
+        color: white; /* text stays clear */
+       }
+input {
+padding: 15px;
+margin: 20px;
+border-radius: 110px;
+border: 2px solid black;
+font-size:15px;
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+button {
+background-color:rgb(238, 182, 12);
+padding: 7px;
+padding-left: 12px;
+padding-right:12px;
+border-radius: 40px;
+cursor: pointer;
+color:rgb(0, 0, 0);
+font-size:17px;
+}
+
+.photo {
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+
+}
+
+
+.image {
+background-color: aliceblue;
+border: 1px solid black;
+border-radius: 100px;
+width: 95px;
+height: 95px;
+padding: 23px;
+}
+
+
+
+img {
+height: 50px;
+width: 50px;
+}
+
+.load-more {
+position: relative;
+margin: auto;
+height: 50px;
+border: 0;
+border-radius: 6px;
+background-color: greenyellow;
+color: aliceblue;
+
+}
+
+.image:hover {
+background-color: rgb(159, 159, 142);
+}
+
+.load-more:hover {
+opacity: 0.8;
+cursor: pointer;
+}
+
+
+
+.arrow {
+font-size: 30px;
+}
+
+.load-more:hover {
+background-color: rgb(0, 255, 0);
+color: rgb(0, 0, 0);
+}
+
+.arrow:hover {
+color: rgb(255, 0, 0);
+}
+p{
+font-size:15px;
+}
+.tour
+{
+    column-count: 5;
+}
+.page-header
+{
+    padding-top:15px;
+    background-color: rgba(0,0,0,0);
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 0px;
+    padding-right: 30px;
+    margin-top: 0;
+    margin-bottom: 0;
+
+}
+.image-text h4
+{
+    font-size: 14px;
+    height: 20px;
+    width: 100px;
+    text-align: center;
+}
+.logo
+{
+    height: 140px;
+    width: 100px;
+    display: none; /* Added to hide all logos initially */
+}
+
+.wave-icon
+{
+    font-size: 24px;
+}
+.account-text
+{
+    margin-left: 10px;
+}
+
+
+    </style>
+
+</head>
+
+<body>
+    <div class="slidebar">
+        <ul class="text-ce">
+            <header>MedCentral</header>
+            <li id="account"><a href="login.html"><i class="fa-solid fa-user"></i>Account</a> </li>
+            <li><a href="Home.html"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li><a href="search.html"><i class="fa-solid fa-calendar-check"></i> Appointment</a> </li>
+            <li><a href="ambMap.html"><i class="fa-solid fa-truck-medical"></i>Ambulance</a> </li>
+            <li><a href="labMap.html"><i class="fas fa-flask"></i>Lab Test</a> </li>
+            <li><a href="contact.html"><i class="fa-solid fa-phone"></i>Contact</a> </li>
+            <li><a onclick="logout()"><i class="fa-solid fa-right-from-bracket" id="logoutIcon" title="Logout"></i>Logout</a></li>
+        </ul>
+
+    </div>
+    <div class="mini">
+        
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+                <li data-target="#myCarousel" data-slide-to="3"></li>
+
+            </ol>
+            
+            <div class="col-xl-4 total">
+                <div class="carousel-inner" id="mega">
+                    <nav class="item active">
+                        <div id="subi1" >
+                          <div class="para-text">
+                            <div class="page-header">
+                            <div><button onclick='window.location.href="search.html";'>Search for Specialities</button><button><i class="fa-solid fa-magnifying-glass" onclick='window.location.href="search.html";'></i></button></div>
+                            <div><button onclick='window.location.href="ambMap.html";' style="background-color:red; color:white;"> <i class="fa-solid fa-truck-medical"></i>Book Specialized Ambulance</button></div>
+                            </div>
+                                <div class="tour">
+                                <div class="logo">
+                                <div class="image">
+                                    <a href="hospitalMap.html"> <img src="image65.png"></a>
+                                    </div>
+                                    <div class="image-text">
+                                        <h4>Cardiology</h4>
+                                        </div>
+                                </div>
+                                <div class="logo">
+                                <div class="image">
+                                    <a href="hospitalMap.html"> <img src="image 42.png"></a>
+                                    </div>
+                                    <div class="image-text">
+                                        <h4>Neurology</h4>
+                                        </div>
+                                </div>
+<div class="logo">
+    <div class="image">
+        <a href="hospitalMap.html"> <img src="image 43.png"></a>
+    </div>
+    <div class="image-text">
+        <h4>Urology</h4>
+    </div>
+</div>
+
+<div class="logo">
+    <div class="image">
+        <a href="hospitalMap.html"> <img src="image 44.png"></a>
+    </div>
+    <div class="image-text">
+        <h4>Odontology</h4>
+    </div>
+</div>
+
+<div class="logo">
+    <div class="image">
+        <a href="hospitalMap.html"> <img src="image 45.png"></a>
+    </div>
+    <div class="image-text">
+        <h4>Hematology</h4>
+    </div>
+</div>
+                                </div>
+                                <div class="tour">
+
+    <div class="logo">
+        <div class="image">
+            <a href="hospitalMap.html"> <img src="image 46.png"></a>
+        </div>
+        <div class="image-text">
+            <h4>Dermatology</h4>
+        </div>
+    </div>
+
+    <div class="logo">
+        <div class="image">
+            <a href="hospitalMap.html"> <img src="image 47.png"></a>
+        </div>
+        <div class="image-text">
+            <h4>Gastroenterology</h4>
+        </div>
+    </div>
+
+    <div class="logo">
+        <div class="image">
+            <a href="hospitalMap.html"> <img src="image 48.png"></a>
+        </div>
+        <div class="image-text">
+            <h4>Hepatology</h4>
+        </div>
+    </div>
+
+    <div class="logo">
+        <div class="image">
+            <a href="hospitalMap.html"> <img src="image 49.png" id="go"></a>
+        </div>
+        <div class="image-text">
+            <h4>Ophthalmology</h4>
+        </div>
+    </div>
+
+    <div class="logo">
+        <div class="image">
+            <a href="hospitalMap.html"> <img src="image 52.png"></a>
+        </div>
+        <div class="image-text">
+            <h4>Pulmonology</h4>
+        </div>
+    </div>
+
+</div>
+
+                                    <div class="tour">
+
+    <div class="logo">
+        <div class="image">
+            <a href="hospitalMap.html"> <img src="image63.1.png"></a>
+        </div>
+        <div class="image-text">
+            <h4>Gynecology</h4>
+        </div>
+    </div>
+
+    <div class="logo">
+        <div class="image">
+            <a href="hospitalMap.html"> <img src="image67.1.png"></a>
+        </div>
+        <div class="image-text">
+            <h4>Orthopedics</h4>
+        </div>
+    </div>
+
+    <div class="logo">
+        <div class="image">
+            <a href="hospitalMap.html"> <img src="image68.1.png"></a>
+        </div>
+        <div class="image-text">
+            <h4>Anaesthiology</h4>
+        </div>
+    </div>
+
+    <div class="logo">
+        <div class="image">
+            <a href="hospitalMap.html"> <img src="image70.1.png"></a>
+        </div>
+        <div class="image-text">
+            <h4>Oncology</h4>
+        </div>
+    </div>
+
+    <div class="logo">
+        <div class="image">
+            <a href="hospitalMap.html"> <img src="image69.1.png"></a>
+        </div>
+        <div class="image-text">
+            <h4>Odontology</h4>
+        </div>
+    </div>
+
+</div>
+
+<div class="tour">
+
+    <div class="logo">
+        <div class="image">
+            <a href="hospitalMap.html"> <img src="image71.1.png"></a>
+        </div>
+        <div class="image-text">
+            <h4>Pathology</h4>
+        </div>
+    </div>
+
+    <div class="logo">
+        <div class="image">
+            <a href="hospitalMap.html"> <img src="image72.1.png"></a>
+        </div>
+        <div class="image-text">
+            <h4>Immunology</h4>
+        </div>
+    </div>
+
+    <div class="logo">
+        <div class="image">
+            <a href="hospitalMap.html"> <img src="image73.1.png"></a>
+        </div>
+        <div class="image-text">
+            <h4>Endocrinology</h4>
+        </div>
+    </div>
+
+    <div class="logo">
+        <div class="image">
+            <a href="hospitalMap.html"> <img src="image74.1.png"></a>
+        </div>
+        <div class="image-text">
+            <h4>Rheumatology</h4>
+        </div>
+    </div>
+
+    <div class="logo">
+        <div class="image">
+            <a href="hospitalMap.html"> <img src="image75.2.png"></a>
+        </div>
+        <div class="image-text">
+            <h4>Neonatology</h4>
+        </div>
+    </div>
+
+</div>
+
+                                <button class="load-more">Load More</button>
+                            </nav>
+                            
+
+
+
+       
+                            <script>
+                                $(document).ready(function () {
+                                    $(".logo").slice(0, 10).fadeIn();
+                                    $(".load-more").click(function () {
+                                        $(".logo").slice(0, 20).fadeIn();
+                                        $(this).hide(); // Hide the button after loading all
+                                    })
+                                })
+                            </script>
+                        
+                        
+                        
+                        
+                    <nav class="item">
+                        <div class="para" id="subi2">
+                            <div class="para-text">
+                                <div class="page-header">
+                            <div><button onclick='window.location.href="search.html";'>Search for Specialities</button><button><i class="fa-solid fa-magnifying-glass" onclick='window.location.href="search.html";'></i></button></div>
+                            <div><button onclick='window.location.href="ambMap.html";' style="background-color:red; color:white;"> <i class="fa-solid fa-truck-medical"></i>Book Specialized Ambulance</button></div>
+                            </div>
+                                <br>
+                                <br>
+                                <br>     
+                                <h1><b style="color:rgb(60, 105, 255); font-size: 36px;">Navigate Health with our Maps</b></h1>
+                                <br>
+                                <br>
+                                     <h2 style="color:rgb(255, 255, 255); font-size: 30px; font-weight: 600;">In times of need, finding the <b style=" font-size: 32px;color:rgb(255, 255, 255); font-weight: 600;">nearest medical<br>
+                                         help</b> with our website</h2>
+                            </div>
+                        </div>
+                    </nav>
+                    <nav class="item">
+                        <div class="para" id="subi3">   
+                            <div class="para-text">
+                                <div class="page-header">
+                            <div><button onclick='window.location.href="search.html";'>Search for Specialities</button><button><i class="fa-solid fa-magnifying-glass" onclick='window.location.href="search.html";'></i></button></div>
+                            <div><button onclick='window.location.href="ambMap.html";' style="background-color:red; color:white;"> <i class="fa-solid fa-truck-medical"></i>Book Specialized Ambulance</button></div>
+                            </div>
+                                <br>
+                                <br>
+                                <h1 style="color:rgb(100, 10, 87); font-size: 35px; font-weight: 900;"><b>Lab Tests</b></h1><br><br>
+                                <b><h1 style="color:rgb(10,10,102); font-size: 30px; font-weight: 600;">Discover Your Health Inside Out.
+                                     with Our Comprehensive Lab Tests! </h1></b>
+                                     <br>
+                                     <br>
+                                     <br>
+                                <button onclick='window.location.href="labMap.html";' style="color:white; font-size: 20px; background-color: rgb(5, 110, 19); padding-left: 25px; padding-right: 25px;">Book Lab Test</button>
+                            </div>
+                        </div>
+                    </nav>
+                    <nav class="item">
+                        <div class="para" id="subi4">
+                            <div class="para-text">
+                               <div class="page-header">
+                            <div><button onclick='window.location.href="search.html";'>Search for Specialities</button><button><i class="fa-solid fa-magnifying-glass" onclick='window.location.href="search.html";'></i></button></div>
+                            <div><button onclick='window.location.href="ambMap.html";' style="background-color:red; color:white;"> <i class="fa-solid fa-truck-medical"></i>Book Specialized Ambulance</button></div>
+                            </div>
+                           <br>
+                           <br>
+                           <br>
+                           <br>
+                           <br>
+                                <b><h2 style="font-size: 35px;font-weight:550; color: rgb(184, 241, 248);">Book Your Appointment Hassle-Free with Us! 📅</h2></b>
+                            
+                          <h3 style="font-size: 30px; color: rgb(0, 89, 255); font-weight: 700;">Booking Facilities Available</h3><br>
+                            <h4  style="font-size: 25px; color:rgb(255, 255, 255);">1.Doctor Appointment</h4>
+                            <h4  style="font-size: 25px; color:rgb(255, 255, 255);">2.Ambulance Booking</h4>
+                            <h4  style="font-size: 25px; color:rgb(255, 255, 255);">3.Booking Lab Tests</h4>
+                                                        </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" style="height: 100vh; width: 50px;"data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" style="height: 100vh; width: 50px;"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+            </a>
+   <script>
+  window.addEventListener("load", async () => {
+    await Clerk.load();
+
+    // 🔐 Protect page
+    if (!Clerk.user) {
+      window.location.href = "login.html";
+      return;
+    }
+
+    const name = Clerk.user.firstName || "User";
+
+    document.getElementById("account").innerHTML = `
+      <a href="#">
+        <span class="account-text"><i class="wave-icon">👋</i> Hi ${name}</span>
+      </a>
+    `;
+  });
+
+  function logout() {
+    Clerk.signOut().then(() => {
+      window.location.href = "login.html";
+    });
+  }
+</script>
+
+
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

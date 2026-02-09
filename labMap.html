@@ -1,0 +1,147 @@
+<html>
+    <head>
+        <title>Map</title>
+        <!-- leaflet css-->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+        <!--leaflet routing machine-->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        #map
+        {
+            width: 100%;
+            height:100vh;
+        }
+    </style>
+    </head>
+    <body>
+       <div id="map"></div>
+    </body>
+
+</html>
+<!--Leaflet routing machine js-->
+<script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+<!--leaflet js-->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+    //map initialisation
+    var map = L.map('map').setView([11.0168, 76.9558], 11);
+    //map layer
+    var osm=L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+osm.addTo(map);
+//watercolor
+var watercolor = L.tileLayer('http://sgx.geodatenzentrum.de/wmts_topplus_open/tile/1.0.0/web/default/WEBMERCATOR/{z}/{y}/{x}.png', {
+	maxZoom: 18,
+	attribution: 'Map data: &copy; <a href="http://www.govdata.de/dl-de/by-2-0">dl-de/by-2-0</a>'
+});
+//watercolor.addTo(map);
+
+//dark
+var dark= L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+	subdomains: 'abcd',
+	maxZoom: 20
+});
+//dark.addTo(map);
+var googleStreets = L.tileLayer('http://{s}.google.com/vt?lyrs=m&x={x}&y={y}&z={z}',{
+    maxZoom: 20,
+    subdomains:['mt0','mt1','mt2','mt3']
+});
+
+googleStreets.addTo(map);
+var myIcon = L.icon({
+    iconUrl: 'image78.1.png',
+    iconSize: [50, 50],
+});                                                                                                                                                                                                                                                                                                                                                             
+var singleMarker=L.marker([11.0176, 76.9674],{icon: myIcon}).addTo(map);
+var thirdMarker=L.marker([11.0254, 77.1246],{icon: myIcon}).addTo(map);
+var fourthMarker=L.marker([10.9132, 77.0369],{icon: myIcon}).addTo(map);
+var fifthMarker=L.marker([11.1048, 76.7683],{icon: myIcon}).addTo(map);
+var seventhMarker=L.marker([11.1085, 77.3411],{icon: myIcon}).addTo(map);
+var ninethMarker=L.marker([10.9956, 77.2852],{icon: myIcon}).addTo(map);
+var tenthMarker=L.marker([10.9535,76.7885],{icon: myIcon}).addTo(map);
+var popup = singleMarker.bindPopup('Laboratory1').openPopup();
+popup.addTo(map);
+var popup3 = thirdMarker.bindPopup('Laboratory3').openPopup();
+popup3.addTo(map);
+var popup4 = fourthMarker.bindPopup('Laboratory4').openPopup();
+popup4.addTo(map);
+var popup5 = fifthMarker.bindPopup('Laboratory5').openPopup();
+popup5.addTo(map);
+var popup7= seventhMarker.bindPopup('Laboratory7').openPopup();
+popup7.addTo(map);
+var popup9 = ninethMarker.bindPopup('Laboratory9').openPopup();
+popup9.addTo(map);
+var popup10 = tenthMarker.bindPopup('Laboratory10').openPopup();
+popup10.addTo(map);
+var clickevent1=singleMarker.on('click', onClick);
+function onClick(e) {
+    let result=confirm('Do you like to view the Laboratory');
+if(result===true)
+{
+window.location="lab.html";
+}
+
+
+    
+}
+
+clickevent1.addTo(map);
+
+console.log(singleMarker.toGeoJSON());
+
+//Layer Controller
+var baseMaps = {
+    "OSM" : osm ,
+    "Water color map":watercolor,
+    "Google Street":googleStreets,
+};
+
+var overlayMaps = {
+    "First Marker": singleMarker,
+    "Second Marker": secondMarker,
+    "Third Marker": thirdMarker,
+    "Fourth Marker": fourthMarker,
+    "Fifth Marker": fifthMarker,
+    "Sixth Marker": sixthMarker,
+    "Seventh Marker":seventhMarker,
+    "Eighth Marker":eighthMarker,
+    "Nineth Marker":ninethMarker,
+    "Tenth Marker":tenthMarker,
+};
+//map.removeLayer(osm);
+L.control.layers(baseMaps, overlayMaps).addTo(map);
+
+
+navigator.geolocation.watchPosition(success,error);
+let marker, circle, zoomed;
+function success(pos) {
+const lat = pos.coords.latitude;
+const lng = pos.coords.longitude;
+const accuracy = pos.coords.accuracy;
+if (marker) {
+map.removeLayer (marker);
+map.removeLayer (circle);
+}
+marker = L.marker ([lat, lng]).addTo(map);
+circle = L.circle ([lat, lng], { radius: accuracy }).addTo(map);
+
+if (!zoomed) {
+zoomed = map.fitBounds(circle.getBounds());
+}
+map.setView([lat, lng],11);
+}
+function error(err) {
+if (err.code === 1) {
+alert("Please allow geolocation access");
+} else {
+alert("Cannot get current location");
+}
+}
+
+</script>

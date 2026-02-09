@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Management System for Emergency</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+
+            margin: 0;
+            padding: 0;
+            border: none;
+            text-decoration: none;
+        }
+
+
+
+        body {
+            display: flex;
+            background-color: rgb(156, 19, 184);
+            display:flex;
+
+        }
+        .slidebar{
+            position:relative;
+            height: 100lvb;
+            background-color: aqua;
+            width:40%;
+            
+        }
+        ul li{
+            padding:10px;
+            
+        }
+        .log{
+            padding-top:130%;
+        }
+        img{
+            
+            height:45px;
+            width:70px;
+           display:inline-block;
+        }
+        
+    
+        .imag{
+           
+            display: none;
+             background-color: antiquewhite;
+            border-radius: 100%;
+            padding:20px;
+        }
+        .image{
+            display:inline-block;
+            margin-right: 20px;
+            margin-bottom: 20px;
+           
+        }
+        button{
+            padding:5px;
+            color:aliceblue;
+            background-color: green;
+            font-size: 20px;
+        }
+       p{
+        align-items: center;
+        text-align: center;
+        justify-content: space-between;
+       
+       }
+       .para{
+        
+        background-color: blue;
+        width:150%;
+        padding:20px;
+        margin-bottom: 20%;
+       }
+
+       .para-contain{
+        margin-top: 10%;
+        display:flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+       }
+       .space{
+        width:50%;
+       }
+       
+    </style>
+</head>
+
+<body>
+    <div class="slidebar">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="slid-cont">
+                    <header class="text-center p-3">Account</header>
+                    <ul class="nav flex-column">
+                        <li class="nav-item"><a class="nav-link" href="P0.html"> <i class="fas fa-user"></i>  Account</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="P1.html"><i class="fas fa-house"></i> Home</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="P2.html"><i class="fas fa-calendar-check"></i>Appointment</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-cog"></i> Settings</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-truck-medical"></i>  Ambulance</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-location-dot"></i>  Location</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-phone"></i> Contact</a></li>
+                        <li class="nav-item log"><a class="nav-link" href="#"><i
+                                    class="fas fa-arrow-right-from-bracket"></i>
+                                Logout</a></li>
+                    </ul>
+                   
+                </div>
+            </div>
+            </div>
+
+    </div>
+    
+            <div class="col-md-10">
+                <!-- Main Content -->
+                <div class="container">
+                    <!-- Buttons -->
+                    <div class="topof">
+                    <div class="row mt-3 mb-3">
+                        <div class="col-md-2">
+                           
+                            <button class="btn btn-primary" onclick='window.location.href="P2.html";'>Search for
+                                Specialties</button>
+                        </div>
+                        <div class="col-md-5">
+                             <input type="text" class="search-box">
+                            <button class="btn btn-primary" onclick='window.location.href="P3.html";'><i
+                                    class="fas fa-search"></i> Search</button>
+                        </div>
+                        <div class="col-md-5">
+                            <button class="btn btn-danger"> <i class="fas fa-truck-medical"></i> Call for
+                                Ambulance</button>
+                        </div>
+                    </div>
+                    </div>
+                    <!-- Image Gallery -->
+                    <div class="image-container">
+                        
+                <div class="image">
+                    <div class="imag">
+                    <a href="doc.html"><img src="image 1.png"></a>
+                    <div class="text">
+                        <p>cardiology</p>
+                    </div>
+                    </div>
+                    
+                </div>
+               
+                <a href="doc.html">
+                <div class="image">
+                <div class="imag">
+                   <img src="image 2.png">
+                    <div class="text">
+                        <p>cardiology </p>
+                    </div>
+                   
+                    </div>
+                </div>
+                </a>
+                
+                <div class="image">
+                <div class="imag">
+                    <a href="doc.html"><img src="image 3.png"></a>
+                    <div class="text">
+                        <p>cardiology </p>
+                    </div>
+                    </div>
+                </div>
+                
+            <div class="image">
+                <div class="imag">
+                    <a href="doc.html"><img src="image 4.webp"></a>
+                    <div class="text">
+                        <p>cardiology </p>
+                    </div>
+                </div>
+            </div>
+                <div class="image">
+                    <div class="imag">
+                        <a href="doc.html"><img src="image 5.png"></a>
+                        <div class="text">
+                        <p>cardiology </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="image">
+                    <div class="imag">
+                    <a href="doc.html"><img src="image 6.png"></a>
+                    <div class="text">
+                        <p>cardiology </p>
+                    </div>
+                    </div>
+                </div>
+                <div class="image">
+                    <div class="imag">
+                        <a href="doc.html"><img src="image 7.png"></a>
+                        <div class="text">
+                            <p>cardiology </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="image">
+                    <div class="imag">
+                        <a href="doc.html"><img src="image 8.png"></a>
+                        <div class="text">
+                            <p>cardiology </p>
+                        </div>
+                    </div>
+                </div>
+                    <!-- Load More Button -->
+                    <div class="row mt-3">
+                        <div class="col-md-12 text-center">
+                            <button class="load-more">Load More</button>
+                        </div>
+                    </div>
+                    </div>
+                    <!-- Services Section -->
+                    <div class="para-contain">
+                    
+                        <div class="col-md-2" >
+                            <div class="para">
+                                <div class="para-text">
+                                    <h1><i class="fas fa-flask"></i></h1>
+                                    <h3>Lab Test</h3>
+                                    <p>Click Appointments to Book Lab Tests & Diagnostics</p>
+                                    <a href="#"><i class="fa-solid fa-arrow-right arrow"></i></a>
+                                </div>
+                            </div>
+                        
+                       
+                        <!-- Repeat for other services -->
+                    </div>
+                        <div class="col-md-2" >
+                            <div class="para">
+                                <div class="para-text">
+                                    <h1><i class="fa-sharp fa-solid fa-leaf"></i></h1>
+                                    <h3>Ayurvedic</h3>
+                                    <p>Click to Appointment ayurvedic hospital</p>
+                                    <a href="#"><i class="fa-solid fa-arrow-right arrow"></i></a>
+                                </div>
+                            </div>
+                        
+                       
+                        <!-- Repeat for other services -->
+                    </div>
+                       
+                    
+                        <div class="col-md-2" >
+                            <div class="para">
+                                <div class="para-text">
+                                    <h1><i class="fa-solid fa-house"></i></h1>
+                                    <h3>Home Care</h3>
+                                    <p>Click to Appointment home care</p>
+                                    <a href="#"><i class="fa-solid fa-arrow-right arrow"></i></a>
+                                </div>
+                            </div>
+                        
+                       
+                        <!-- Repeat for other services -->
+                    </div>
+                    
+                        <div class="col-md-2" >
+                            <div class="para">
+                                <div class="para-text">
+                                    <h1><i class="fa-solid fa-plus"></i></h1>
+                                    <h3>Psychologist<br> Councling</h3>
+                                    <p>click to Appointment Psychologist Councling</p>
+                                    <a href="#"><i class="fa-solid fa-arrow-right arrow"></i></a>
+                                </div>
+                            </div>
+                        
+                       
+                        <!-- Repeat for other services -->
+                    </div>
+                      
+                    </div>
+                </div>
+            </div>
+            </div>
+        
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".imag").slice(0, 4).fadeIn();
+            $(".load-more").click(function () {
+                $(".imag").slice(0, 12).fadeIn();
+                $(this).fadeIn();
+            })
+        })
+    </script>
+
+</body>
+
+</html>

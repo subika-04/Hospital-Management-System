@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <title>Document</title>
+    <style>
+        body{
+             background-image:url("image6.jpg");
+             background-size: 1520px 800px;
+             background-attachment: fixed;
+        }
+        .container{
+            width:450px;
+            height: 500px;
+            margin-left: 35%;
+            position:fixed;
+            padding: 40px;
+            justify-content: space-between;
+            top:50px;
+            border: 2px solid black;
+            background-color: rgba(255, 255, 255, 0.247);
+            border-radius: 40px;
+        }
+        label{
+            color:rgb(0, 0, 0);
+            font-size: 15px;
+            font-weight: 500;
+        }
+        input{
+            padding:15px;
+            width:350px;
+           cursor: pointer;
+           border-top: none;
+           border-left: none;
+           border-right: none;
+           border-bottom: 2px solid black;
+           height: 35px;
+        }
+        input:hover{
+            background-color: rgb(199, 190, 177);
+            color:black;
+        }
+        button{
+            padding: 10px;
+            padding-left:20px;
+            padding-right:20px;
+            background-color: green;
+            color:white;
+            border-radius: 5px;
+            cursor:pointer;
+            text-align:center ;
+            align-items: center;
+        }
+        h1{
+            text-align: center;
+            font-size: 26px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h1>Register</h1>
+    <label for="fname">First Name : </label><br>
+    <input type="text" id="fname" placeholder="Enter your first name"><br><br>
+    <label for="lname">Last Name : </label><br>
+    <input type="text" id="lname" placeholder="Enter your last name"><br><br>
+    <label for="uname">Username :</label><br>
+    <input type="text" id="uname" placeholder="Select your username"><br><br>
+    <label for="pass">Password :</label><br>
+    <input type="text" id="pass" placeholder="Enter your Password use !@#$%^&*"><br><br>
+    <button onclick='window.location.href="Home.html";'>Click to Register</button><br><br><br>
+
+    </div>
+    <script>
+        let username=document.getElementById("uname").value;
+        let password=document.getElementById("pass").value;
+        let name=document.getElementById("name").value;
+        let Pass=document.getElementById("password").value;
+        function check(){
+        if(username===name){
+        alert("Login Successful");
+        document.getElementById("button").onclick='window.location.href="Home.html";' 
+        }
+        else
+        alert("Invalid Usename or Password");
+        }
+    </script>
+</body>
+</html>
