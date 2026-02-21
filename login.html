@@ -23,7 +23,7 @@
         .bg-image {
             background-image:url("back.jpg");
             background-repeat: no-repeat;
-            background-size: 1500px 800px;
+            background-size: cover;
             min-height: 100vh;
         }
 
@@ -61,8 +61,8 @@
             Clerk.mountSignIn(
                 document.getElementById("clerk-login"),
                 {
-                    afterSignInUrl: "/",
-                    afterSignUpUrl: "/"
+                    afterSignInUrl: "/index.html",
+                    afterSignUpUrl: "/index.html"
                 }
             );
         });
