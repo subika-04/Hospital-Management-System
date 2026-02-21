@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -265,11 +265,12 @@ font-size:15px;
 
 .wave-icon
 {
-    font-size: 24px;
+    font-size: 20px;
 }
 .account-text
 {
-    margin-left: 10px;
+    margin-left: 0px;
+    margin-right:40px;
 }
 
 
@@ -282,7 +283,7 @@ font-size:15px;
         <ul class="text-ce">
             <header>MedCentral</header>
             <li id="account"><a href="login.html"><i class="fa-solid fa-user"></i>Account</a> </li>
-            <li><a href="Home.html"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li><a href="index.html"><i class="fa-solid fa-house"></i> index</a></li>
             <li><a href="search.html"><i class="fa-solid fa-calendar-check"></i> Appointment</a> </li>
             <li><a href="ambMap.html"><i class="fa-solid fa-truck-medical"></i>Ambulance</a> </li>
             <li><a href="labMap.html"><i class="fas fa-flask"></i>Lab Test</a> </li>
@@ -606,7 +607,7 @@ font-size:15px;
 
     document.getElementById("account").innerHTML = `
       <a href="#">
-        <span class="account-text"><i class="wave-icon">👋</i> Hi ${name}</span>
+        <span class="account-text"><i class="fa-solid fa-hand"></i>Hi ${name}</span>
       </a>
     `;
   });
